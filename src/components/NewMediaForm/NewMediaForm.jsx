@@ -7,6 +7,7 @@ export default function NewMediaForm(){
     const nameRef = useRef('')
     const urlRef = useRef('')
     const [error, setError] = useState('')
+    
     async function handleSubmit(e){
         e.preventDefault()
         setError('')

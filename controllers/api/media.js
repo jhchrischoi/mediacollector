@@ -5,7 +5,8 @@ module.exports = {
     createMedia,
     detailMedia,
     deleteMedia,
-    updateMedia
+    updateMedia,
+    addToVideos
 }
 
 async function indexMedia(req, res){
@@ -57,4 +58,13 @@ async function updateMedia(req, res){
         console.log(err);
         res.status(400).json('Bad Request')
     }
+}
+
+async function addToVideos(req, res){
+    Collection.findById(req.params.id, function(err, collection){
+        collection.video.push(req.body.mediaId);
+        collection.save(function(err){
+            res.redirect(`/collections/${collection._id}`);
+        });
+    });
 }

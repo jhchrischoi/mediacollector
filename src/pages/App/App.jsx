@@ -1,7 +1,7 @@
 import AuthPage from '../AuthPage/AuthPage';
-import NewMoviePage from '../NewMoviePage/NewMoviePage';
-import MoviesIndexPage from '../MoviesIndexPage/MoviesIndexPage';
-import MovieDetailPage from '../MovieDetailPage/MovieDetailPage';
+import NewCollectionPage from '../NewCollectionPage/NewCollectionPage';
+import CollectionsIndexPage from '../CollectionsIndexPage/CollectionsIndexPage';
+import CollectionDetailPage from '../CollectionDetailPage/CollectionDetailPage';
 
 import NewMediaPage from '../NewMediaPage/NewMediaPage';
 import MediaIndexPage from '../MediaIndexPage/MediaIndexPage';
@@ -24,9 +24,9 @@ export default function App() {
       <NavBar setUser={ setUser } user={user}></NavBar>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/movies/new" element={<NewMoviePage />} />
-        <Route path="/movies" element={<MoviesIndexPage />} />
-        <Route path="/movies/:movieId" element={<MovieDetailPage />} />
+        <Route path="/collections/new" element={<NewCollectionPage />} />
+        <Route path="/collections" element={<CollectionsIndexPage />} />
+        <Route path="/collections/:collectionId" element={<CollectionDetailPage />} />
 
         <Route path="/media/new" element={<NewMediaPage />} />
         <Route path="/media" element={<MediaIndexPage />} />

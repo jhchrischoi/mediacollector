@@ -21,7 +21,7 @@ app.use(checkToken)
 //   next()
 // })
 app.use('/api/users', require('./routes/api/users'))
-app.use('/api/movies', require('./routes/api/movies'))
+app.use('/api/collections', require('./routes/api/collection'))
 app.use('/api/media', require('./routes/api/media'))
 
 app.get('/*', function(req, res) {

@@ -1,21 +1,21 @@
 import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom'
-import { updateMovieRequest } from '../../../utilities/movies-api';
+import { updateCollectionRequest } from '../../../utilities/collections-api';
 
-export default function EditMovieForm({movie, setMovie, setEditFormIsOpen}){
+export default function EditCollectionForm({collection, setCollection, setEditFormIsOpen}){
     const navigate = useNavigate();
-    const titleRef = useRef(movie.title)
-    const ratingRef = useRef(movie.rating)
+    const titleRef = useRef(collection.title)
+    const ratingRef = useRef(collection.rating)
     const [error, setError] = useState('')
     async function handleSubmit(e){
         e.preventDefault()
-        const updatedMovie = {
+        const updatedCollection = {
             title: titleRef.current.value,
             rating: ratingRef.current.value,
         }
         try{
-            const newMovie = await updateMovieRequest(movie._id, updatedMovie)
-            setMovie(newMovie)
+            const newCollection = await updateCollectionRequest(collection._id, updatedCollection)
+            setCollection(newCollection)
             setEditFormIsOpen(false)
         }catch(err){
             setError("Bad Update, Man")
@@ -27,9 +27,9 @@ export default function EditMovieForm({movie, setMovie, setEditFormIsOpen}){
         { error && <p>{JSON.stringify(error)}</p>}
             <form onSubmit={handleSubmit}>
                 <label htmlFor="title">Collection Name</label>
-                <input type="text" id="title" ref={titleRef} defaultValue={movie.title}/>
+                <input type="text" id="title" ref={titleRef} defaultValue={collection.title}/>
                 <label htmlFor="rating">Source</label>
-                <select name="rating" id="rating" ref={ratingRef} defaultValue={movie.rating}>
+                <select name="rating" id="rating" ref={ratingRef} defaultValue={collection.rating}>
                     <option value="youtube">Youtube</option>
                     <option value="instagram">Instagram</option>
                     <option value="tictok">TicTok</option>

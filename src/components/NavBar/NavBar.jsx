@@ -11,9 +11,9 @@ export default function NavBar({setUser, user}){
             <nav>
                 <span>Welcome, {user.name}</span>
                 &nbsp; | &nbsp;
-                <Link to="/movies">All Collections</Link>
+                <Link to="/collections">All Collections</Link>
                 &nbsp; | &nbsp;
-                <Link to="/movies/new">Create a Collection</Link>
+                <Link to="/collections/new">Create a Collection</Link>
                 &nbsp; | &nbsp;
                 <Link to="/media">All Media</Link>
                 &nbsp; | &nbsp;
