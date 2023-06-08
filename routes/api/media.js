@@ -9,6 +9,6 @@ router.post('/', mediaController.createMedia);
 router.get('/:id', mediaController.detailMedia);
 router.delete('/:id', mediaController.deleteMedia);
 router.put('/:id', mediaController.updateMedia)
-router.post('/collections/:id/media', mediaController.addToVideos);
+// router.post('/collections/:id/media', mediaController.addToVideos);
 
 module.exports = router;

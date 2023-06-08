@@ -1,7 +1,9 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { getCollectionRequest, deleteCollectionRequest } from "../../utilities/collections-api";
+import { getCollectionRequest, deleteCollectionRequest, addVideoToCollection } from "../../utilities/collections-api";
 import { useEffect, useState } from 'react';
 import CollectionDetail from "../../components/CollectionDetail/CollectionDetail";
+import MediaAddedItem from "../../components/MediaAdded/MediaAddedItems/MediaAddedItem";
+
 export default function CollectionDetailPage(){
     let { collectionId } = useParams();
     const [collection, setCollection] = useState({})
@@ -16,6 +18,7 @@ export default function CollectionDetailPage(){
                 setTimeout(()=>{
                     setLoading(false)
                 }, 1000)
+                console.log(collection.title)
             }else{
                 setError('No Collection Found')
                 setLoading(false)
@@ -24,12 +27,14 @@ export default function CollectionDetailPage(){
         getCollection()
     }, [])
 
+ 
     async function handleDelete(e){
         const deleteResponse = await deleteCollectionRequest(collection._id);
         if(deleteResponse.data === 'success'){
             navigate('/collections')
         }
     }
+ 
     return (
         <>
         <h1>List</h1>
@@ -39,6 +44,11 @@ export default function CollectionDetailPage(){
         :
         <CollectionDetail collection={collection} handleDelete={handleDelete} setCollection={setCollection}></CollectionDetail>
         }
+        <div>
+        <h1>Added</h1>
+        {collection.videos && collection.videos.map(media=> <MediaAddedItem key={media._id} media={media}></MediaAddedItem>)
+        }
+        </div>
         </>
     )
 }

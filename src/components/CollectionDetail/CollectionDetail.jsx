@@ -52,14 +52,7 @@ export default function CollectionDetail({collection, handleDelete, setCollectio
             <div>
                 <div id="all-media-added">
                     <form id="media-to-add" onSubmit={handleSubmit}>
-                        <select name="mediaId" value={setSelectedMedia} onChange={handleSelectChange}>
-                        {collection.videos.map((m) => (
-                            <option key={m._id} value={m._id}>
-                            {m.name}
-                            </option>
-                        ))}
-                        </select>
-                        <button type="submit">Add to Cast</button>
+                    
                     </form>
                 </div>
             </div>

@@ -11,6 +11,7 @@ export default function MediaIndexPage(){
             setMedia(media)
         }
         getMedia();
+        console.log("does it go through this everytime I load this page?")
     }, [])
     return(
         <>

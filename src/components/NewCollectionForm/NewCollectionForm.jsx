@@ -28,14 +28,6 @@ export default function NewCollectionForm(){
             <form onSubmit={handleSubmit}>
                 <label htmlFor="title">Collection Name</label>
                     <input type="text" id="title" ref={titleRef} />
-                    
-                {/* <label htmlFor="rating">Source</label>
-                    <select name="rating" id="rating" ref={ratingRef}>
-                        <option value="youtube">Youtube</option>
-                        <option value="instagram">Instagram</option>
-                        <option value="tictok">TicTok</option>
-                        <option value="other">Other</option>
-                </select> */}
                 <button>Create</button>
             </form>
         </>
