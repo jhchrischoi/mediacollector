@@ -28,6 +28,7 @@ export default function NewCollectionForm(){
             <form onSubmit={handleSubmit}>
                 <label htmlFor="title">Collection Name</label>
                     <input type="text" id="title" ref={titleRef} />
+                    
                 <button>Create</button>
             </form>
         </>

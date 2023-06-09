@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { logOut } from '../../utilities/users-service';
-
+import './NavBar.css';
 export default function NavBar({setUser, user}){
     function handleLogOut() {
         logOut();
@@ -8,21 +8,21 @@ export default function NavBar({setUser, user}){
     }
     return(
         <>
-            <nav>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto align-items-center">
                 <span>Welcome, {user.name}</span>
                 &nbsp; | &nbsp;
-                <Link to="/collections">All Collections</Link>
+                <Link class="nav-item" to="/collections">All Collections</Link>
                 &nbsp; | &nbsp;
-                <Link to="/collections/new">Create a Collection</Link>
+                <Link class="nav-item" to="/collections/new">Create a Collection</Link>
                 &nbsp; | &nbsp;
-                <Link to="/media">All Media</Link>
+                <Link class="nav-item" to="/media">All Media</Link>
                 &nbsp; | &nbsp;
-                <Link to="/media/new">Save a Video/Photo</Link>
+                <Link class="nav-item" to="/media/new">Save a Video/Photo</Link>
                 &nbsp; | &nbsp;
-                <Link to="" onClick={handleLogOut}>Log Out</Link>
-                
-
-            </nav>
+                <Link class="nav-item" to="" onClick={handleLogOut}>Log Out</Link>
+                </ul>
+            </div>
         </>
     )
 }
