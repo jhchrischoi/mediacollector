@@ -56,5 +56,8 @@
   "bugs": {
     "url": "https://github.com/jhchrischoi/mediacollector/issues"
   },
-  "homepage": "https://github.com/jhchrischoi/mediacollector#readme"
+  "homepage": "https://github.com/jhchrischoi/mediacollector#readme",
+  "engines":{
+    "node": "18.14.0"
+  }
 }
