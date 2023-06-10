@@ -86,8 +86,8 @@ async function addVideo(req, res) {
       const collection = await Collection.findById(req.params.id);
   
       // Check if the video already exists in the collection
-      if (collection.videos.includes(req.params.mediaId)) {
-        return res.status(400).json('Video already exists in the collection');
+      if (collection.videos.length > 0) {
+        return res.status(400).json('Only one video can be associated with the collection');
       }
   
       // Add the video to the collection
@@ -102,3 +102,4 @@ async function addVideo(req, res) {
       res.status(500).json('Internal Server Error');
     }
   }
+  
