@@ -66,17 +66,39 @@ async function update(req, res){
     }
 }
 
-async function addVideo(req, res){
-    try{
-        // get req.param
-        const collection = await Collection.findById(req.params.id)
-        // adding a video (setup the route as well - url with :id and :mediaId)
-        collection.videos.push(req.params.mediaId)
-        // save it
-        await collection.save()
-        res.status(200).json(collection)
-    }catch(err){
-        console.log(err);
-        res.status(400).json('Bad Request')
+// async function addVideo(req, res){
+//     try{
+//         // get req.param
+//         const collection = await Collection.findById(req.params.id)
+//         // adding a video (setup the route as well - url with :id and :mediaId)
+//         collection.videos.push(req.params.mediaId)
+//         // save it
+//         await collection.save()
+//         res.status(200).json(collection)
+//     }catch(err){
+//         console.log(err);
+//         res.status(400).json('Bad Request')
+//     }
+// }
+
+async function addVideo(req, res) {
+    try {
+      const collection = await Collection.findById(req.params.id);
+  
+      // Check if the video already exists in the collection
+      if (collection.videos.includes(req.params.mediaId)) {
+        return res.status(400).json('Video already exists in the collection');
+      }
+  
+      // Add the video to the collection
+      collection.videos.push(req.params.mediaId);
+  
+      // Save the updated collection
+      const updatedCollection = await collection.save();
+  
+      res.status(200).json(updatedCollection);
+    } catch (err) {
+      console.error(err);
+      res.status(500).json('Internal Server Error');
     }
-}
+  }
