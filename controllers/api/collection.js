@@ -84,22 +84,19 @@ async function update(req, res){
 async function addVideo(req, res) {
     try {
       const collection = await Collection.findById(req.params.id);
+      const { mediaId } = req.params;
   
-      // Check if the video already exists in the collection
-      const existingVideo = collection.videos.find(video => video.equals(req.params.mediaId));
-      if (existingVideo) {
-        return res.status(400).json('Video already exists in the collection');
+      // Check if the video is already added
+      if (collection.videos.includes(mediaId)) {
+        return res.status(200).json('Video Already Added');
       }
   
-      // Add the video to the collection
-      collection.videos.push(req.params.mediaId);
+      collection.videos.push(mediaId);
+      await collection.save();
   
-      // Save the updated collection
-      const updatedCollection = await collection.save();
-  
-      res.status(200).json(updatedCollection);
+      res.status(200).json(collection);
     } catch (err) {
-      console.error(err);
-      res.status(500).json('Internal Server Error');
+      console.log(err);
+      res.status(400).json('Bad Request');
     }
   }
