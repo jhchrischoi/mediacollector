@@ -38,21 +38,14 @@ export default function EditCollectionForm({collection, setCollection, setEditFo
             <br />
             <div class="row">
                 <div class="col-md-6">
-                    <div class="contact_form ">
+                    
                     { error && <p>{JSON.stringify(error)}</p>}
                 <form onSubmit={handleSubmit}>
                 <label htmlFor="title">Collection Name</label>
                 <input type="text" id="title" ref={titleRef} defaultValue={collection.title}/>
-                {/* <label htmlFor="rating">Source</label>
-                <select name="rating" id="rating" ref={ratingRef} defaultValue={collection.rating}>
-                    <option value="youtube">Youtube</option>
-                    <option value="instagram">Instagram</option>
-                    <option value="tictok">TicTok</option>
-                    <option value="other">Other</option>
-                </select> */}
                 <button>Edit</button>
             </form>
-                    </div>
+                    
                 </div>
             </div>
         </div>
