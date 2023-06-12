@@ -1,6 +1,10 @@
 import { useState, useEffect, useRef} from 'react'
 import EditMediaForm from './EditMediaForm/EditMediaForm'
 import { personalCollectionRequest, addVideoToCollection } from '../../utilities/collections-api'
+import '../../fregg/css/bootstrap.css'
+import '../../fregg/css/responsive.css'
+import '../../fregg/css/style.css'
+import '../../fregg/css/style.css.map'
 
 export default function MediaDetail({media, handleDelete, setMedia}){
     const [editFormIsOpen, setEditFormIsOpen] = useState(false)
@@ -32,6 +36,7 @@ async function handleAddVideo(e) {
       if (response === 'Video Already Added') {
         setError('This Media Is Already Added');
       } else {
+        // Handle the successful response
         setError('The Media Added!')
       }
     } catch (err) {
@@ -42,28 +47,34 @@ async function handleAddVideo(e) {
     return (
         <>
             <div>
-                <h3>{media.name}</h3>
-                <p>URL {media.url}</p>
-                <button onClick={handleDelete}>DELETE {media.name}</button>
-                <button onClick={toggleEditForm}>
+                <h3 style={{ color: 'white' }}>{media.name}</h3>
+                <p style={{ color: 'white' }}><a href={media.url} target="_blank" rel="noopener noreferrer">{media.url}</a></p>
+                <button onClick={handleDelete} class="media-detail">DELETE {media.name}</button>
+                &nbsp; | &nbsp;
+                <button onClick={toggleEditForm} class="media-detail">
                     {editFormIsOpen ? "Close Editor" : "Edit"}
                 </button>
 
                 { editFormIsOpen && 
                     <EditMediaForm media={media} setMedia={setMedia} setEditFormIsOpen={setEditFormIsOpen}></EditMediaForm>
                 }
-
+                <br />
+                <br />
+                <br />
+                <div class="add-video-border">
                 <form onSubmit={handleAddVideo}>
-                    <select ref={selectedCollectionRef}>
+                    <select ref={selectedCollectionRef} class="select-collection">
                         {personalCollections.map((collection) => (
                             <option key={collection._id} value={collection._id}>
                             {collection.title}
                             </option>
                         ))}
                     </select>
-                    <button type="submit">Add to Collection</button>
+                    <button type="submit" class="select-collection-button">Add to Collection</button>
                 </form>
-                <p className="error-message">&nbsp;{error}</p>
+                </div>
+                <br />
+                <p className="error-message" class="error-message">&nbsp;{error}</p>
             </div>
         </>
     )

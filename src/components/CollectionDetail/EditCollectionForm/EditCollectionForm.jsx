@@ -1,6 +1,10 @@
 import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom'
 import { updateCollectionRequest } from '../../../utilities/collections-api';
+import '../../../fregg/css/bootstrap.css'
+import '../../../fregg/css/responsive.css'
+import '../../../fregg/css/style.css'
+import '../../../fregg/css/style.css.map'
 
 export default function EditCollectionForm({collection, setCollection, setEditFormIsOpen}){
     const navigate = useNavigate();
@@ -23,20 +27,38 @@ export default function EditCollectionForm({collection, setCollection, setEditFo
     }
     return(
         <>
-        <h3>edit</h3>
-        { error && <p>{JSON.stringify(error)}</p>}
-            <form onSubmit={handleSubmit}>
+        <br />
+        <br />
+        <br />
+        <section class="contact_section">
+        <div class="container contact_bg layout_padding2-top">
+            <h2 class="create-new-border">Edit</h2>
+            <br />
+            <br />
+            <br />
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="contact_form ">
+                    { error && <p>{JSON.stringify(error)}</p>}
+                <form onSubmit={handleSubmit}>
                 <label htmlFor="title">Collection Name</label>
                 <input type="text" id="title" ref={titleRef} defaultValue={collection.title}/>
-                <label htmlFor="rating">Source</label>
+                {/* <label htmlFor="rating">Source</label>
                 <select name="rating" id="rating" ref={ratingRef} defaultValue={collection.rating}>
                     <option value="youtube">Youtube</option>
                     <option value="instagram">Instagram</option>
                     <option value="tictok">TicTok</option>
                     <option value="other">Other</option>
-                </select>
+                </select> */}
                 <button>Edit</button>
             </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+        
+        
             </>
     )
 }

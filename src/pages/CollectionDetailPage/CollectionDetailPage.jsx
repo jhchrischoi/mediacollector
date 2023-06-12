@@ -3,6 +3,11 @@ import { getCollectionRequest, deleteCollectionRequest, addVideoToCollection } f
 import { useEffect, useState } from 'react';
 import CollectionDetail from "../../components/CollectionDetail/CollectionDetail";
 import MediaAddedItem from "../../components/MediaAdded/MediaAddedItems/MediaAddedItem";
+import '../../fregg/css/bootstrap.css'
+import '../../fregg/css/responsive.css'
+import '../../fregg/css/style.css'
+import '../../fregg/css/style.css.map'
+
 
 export default function CollectionDetailPage(){
     let { collectionId } = useParams();
@@ -37,18 +42,40 @@ export default function CollectionDetailPage(){
  
     return (
         <>
-        <h1>List</h1>
-        { loading ? <p>Loading....</p>
-        :
-        error ? <p>{error}</p> 
-        :
-        <CollectionDetail collection={collection} handleDelete={handleDelete} setCollection={setCollection}></CollectionDetail>
-        }
-        <div>
-        <h1>Added</h1>
-        {collection.videos && collection.videos.map(media=> <MediaAddedItem key={media._id} media={media}></MediaAddedItem>)
-        }
-        </div>
+        <section class="about_section layout_padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="detail-box">
+                            <div class="heading_container">
+                                    <h2 style={{ color: 'white' }}>
+                                    Detail
+                                    </h2>
+                            </div>
+                            <br />
+                            <CollectionDetail collection={collection} handleDelete={handleDelete} setCollection={setCollection}></CollectionDetail>
+                        </div>
+                        <section class="about_section layout_padding">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div>
+                                <div class="heading_container">
+                                    <h2 style={{ color: 'white' }}>
+                                        Added
+                                    </h2>
+                                </div>
+                                <br />
+                                {collection.videos && collection.videos.map(media=> <MediaAddedItem key={media._id} media={media}></MediaAddedItem>)}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>        
+                    </div>
+                </div>
+            </div>
+        </section>
         </>
     )
 }

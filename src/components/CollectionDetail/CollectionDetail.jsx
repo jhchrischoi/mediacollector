@@ -40,9 +40,10 @@ export default function CollectionDetail({collection, handleDelete, setCollectio
     return (
         <>
             <div>
-                <h3>Title: {collection.title}</h3>
-                <button onClick={handleDelete}>DELETE {collection.title}</button>
-                <button onClick={toggleEditForm}>
+                <h4 style={{ color: 'white' }}>{collection.title}</h4>
+                <button onClick={handleDelete} class="plus-button">DELETE {collection.title}</button>
+                &nbsp; | &nbsp;
+                <button onClick={toggleEditForm} class="plus-button">
                     {editFormIsOpen ? "Close Editor" : "Edit"}
                 </button>
                 { editFormIsOpen && 

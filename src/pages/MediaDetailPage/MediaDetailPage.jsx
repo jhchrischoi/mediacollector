@@ -32,13 +32,23 @@ export default function MediaDetailPage(){
     }
     return (
         <>
-        <h1>List</h1>
-        { loading ? <p>Loading....</p>
-        :
-        error ? <p>{error}</p> 
-        :
-        <MediaDetail media={media} handleDelete={handleDelete} setMedia={setMedia}></MediaDetail>
-        }
+        <section class="about_section layout_padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="detail-box">
+                            <div class="heading_container">
+                                    <h2 style={{ color: 'white' }}>
+                                    Detail
+                                    </h2>
+                            </div>
+                            <br />
+                            <MediaDetail media={media} handleDelete={handleDelete} setMedia={setMedia}></MediaDetail>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         </>
     )
 }

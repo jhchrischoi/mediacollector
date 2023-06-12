@@ -36,7 +36,7 @@ body {
 
 .heading_container h2 {
   font-weight: bold;
-  color: #050000;
+  color: black;
   padding: 3px 10px;
   border-bottom: 1px solid white;
 }
@@ -46,6 +46,8 @@ body {
   height: 100vh;
   background-image: url(../images/hero-bg.jpg);
   background-size: cover;
+  background-repeat: repeat-y;
+  border-radius: 5px;
 }
 
 .sub_page .hero_area {
@@ -409,10 +411,10 @@ a:focus {
   margin: 15px 0;
   height: 50px;
   padding-left: 15px;
-  border: none;
+  border: 1px solid #e93f1a;
   outline: none;
-  background-color: #1c1b2d;
-  color: #ffffff;
+  background-color: white;
+  color: rgb(150, 140, 132);
 }
 
 .contact_section .contact_form input.message_input {
@@ -438,8 +440,8 @@ a:focus {
 .contact_section .contact_form button {
   display: inline-block;
   padding: 8px 35px;
-  background-color: #e93f1a;
-  color: #ffffff;
+  background-color: white;
+  color: #e93f1a;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   border: 1px solid transparent;
@@ -579,7 +581,7 @@ a:focus {
   display: inline-block;
   padding: 8px 35px;
   background-color: black;
-  color: white;
+  color: #e93f1a;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   border: 1px solid transparent;
@@ -592,6 +594,49 @@ a:focus {
   background-color: transparent;
   border-color: #e93f1a;
   color: #e93f1a;
+}
+
+.media-detail{
+  display: inline-block;
+  padding: 8px 35px;
+  background-color: white;
+  color: #e93f1a;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  margin-top: 25px;
+  font-size:20px;
+}
+
+.media-detail:hover {
+  background-color: transparent;
+  border-color: #e93f1a;
+  color: #e93f1a;
+}
+
+.select-collection-button{
+  display: inline-block;
+  padding: 8px 35px;
+  background-color: black;
+  color: #e93f1a;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  margin-top: 25px;
+  font-size:20px;
+}
+
+.select-collection-button:hover {
+  background-color: transparent;
+  border-color: #e93f1a;
+  color: #e93f1a;
+}
+
+
+.error-message{
+  color:white;
 }
 
 .info_section .footer_contact .box {
@@ -634,6 +679,10 @@ a:focus {
 
 .footer_section a {
   color: #ffffff;
+}
+
+.add-video-border{
+  border-color:#000;
 }
 
 /* end footer section*/

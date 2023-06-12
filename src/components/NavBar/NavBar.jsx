@@ -27,7 +27,7 @@ export default function NavBar({setUser, user}){
                                     <a class="nav-link"><Link to="/" style={{ color: 'white' }}>Home Page</Link></a>
                                 </li>
                                 <li class="nav-item active">
-                                    <a class="nav-link"><Link to="/collections" style={{ color: 'white' }}>All Collections</Link></a>
+                                    <a class="nav-link"><Link to="/collections" style={{ color: 'white' }}>My Collections</Link></a>
                                 </li>
                                 {/* <li class="nav-item">
                                     <a class="nav-link"><Link to="/collections/new" style={{ color: 'white' }}>Create a Collection</Link></a>
