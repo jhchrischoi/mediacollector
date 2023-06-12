@@ -14,8 +14,7 @@ export default function EditCollectionForm({collection, setCollection, setEditFo
     async function handleSubmit(e){
         e.preventDefault()
         const updatedCollection = {
-            title: titleRef.current.value,
-            rating: ratingRef.current.value,
+            title: titleRef.current.value
         }
         try{
             const newCollection = await updateCollectionRequest(collection._id, updatedCollection)
@@ -38,14 +37,14 @@ export default function EditCollectionForm({collection, setCollection, setEditFo
             <br />
             <div class="row">
                 <div class="col-md-6">
-                    
+                    <div class="contact_form ">
                     { error && <p>{JSON.stringify(error)}</p>}
                 <form onSubmit={handleSubmit}>
                 <label htmlFor="title">Collection Name</label>
                 <input type="text" id="title" ref={titleRef} defaultValue={collection.title}/>
                 <button>Edit</button>
             </form>
-                    
+                    </div>
                 </div>
             </div>
         </div>

@@ -38,7 +38,7 @@ export default function EditMediaForm({media, setMedia, setEditFormIsOpen}){
             <br />
             <div class="row">
                 <div class="col-md-6">
-                    
+                    <div class="contact_form ">
                     { error && <p>{JSON.stringify(error)}</p>}
             <form onSubmit={handleSubmit}>
                 <label htmlFor="media-name">Name</label>
@@ -47,7 +47,7 @@ export default function EditMediaForm({media, setMedia, setEditFormIsOpen}){
                 <input type="number" id="url" ref={urlRef} defaultValue={media.url}/>
                 <button>Edit</button>
             </form>
-                    
+                    </div>
                 </div>
             </div>
         </div>
