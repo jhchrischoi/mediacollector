@@ -32,7 +32,7 @@ async function handleAddVideo(e) {
       if (response === 'Video Already Added') {
         setError('This Media Is Already Added');
       } else {
-        // Handle the successful response
+        setError('The Media Added!')
       }
     } catch (err) {
       console.error(err);
