@@ -8,17 +8,21 @@ import MediaIndexPage from '../MediaIndexPage/MediaIndexPage';
 import MediaDetailPage from '../MediaDetailPage/MediaDetailPage';
 
 import HomePage from '../HomePage/HomePage';
-import './App.css';
+// import './App.css';
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import NavBar from '../../components/NavBar/NavBar';
 import { getUser } from '../../utilities/users-service';
+import '../../fregg/css/bootstrap.css'
+import '../../fregg/css/responsive.css'
+import '../../fregg/css/style.css'
+import '../../fregg/css/style.css.map'
 
 export default function App() {
   const [user, setUser] = useState(getUser());
   
   return (
-    <main className="App">
+    <main className="App" class="hero_area">
       { user ? 
       <>
       <NavBar setUser={ setUser } user={user}></NavBar>
